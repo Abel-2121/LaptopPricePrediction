@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #fff7ed;
+  --color-primary-100: #ffedd5;
+  --color-primary-200: #fed7aa;
+  --color-primary-300: #fdba74;
+  --color-primary-400: #fb923c;
+  --color-primary-500: #f97316;
+  --color-primary-600: #ea580c;
+  --color-primary-700: #c2410c;
+  --color-primary-800: #9a3412;
+  --color-primary-900: #7c2d12;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 min-h-screen font-sans antialiased overflow-x-hidden;
+    background: 
+      radial-gradient(circle at 100% 0%, #fff7ed 0%, transparent 40%),
+      radial-gradient(circle at 0% 100%, #fff7ed 0%, transparent 40%),
+      #ffffff;
+  }
+}
+
+@layer components {
+  .glass-nav {
+    @apply sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-slate-200/50 px-6 py-4;
+  }
+
+  .pro-card {
+    @apply bg-white border border-slate-200 rounded-[2rem] p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/5;
+  }
+
+  .pro-input {
+    @apply bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 placeholder:text-slate-400
+           focus:outline-none focus:border-orange-500/50 focus:ring-4 focus:ring-orange-500/10 transition-all duration-300 w-full font-medium;
+  }
+
+  .pro-button {
+    @apply bg-orange-600 text-white font-bold py-5 px-10 rounded-2xl
+           shadow-xl shadow-orange-500/20 hover:bg-orange-500 hover:-translate-y-1 active:translate-y-0
+           transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50;
+  }
+
+  .section-title {
+    @apply text-3xl font-black tracking-tight text-slate-900 flex items-center gap-3;
+  }
+
+  .stat-card {
+    @apply bg-orange-50 rounded-3xl p-6 border border-orange-100 flex flex-col gap-2;
+  }
+}
+
+/* Custom Range styling */
+input[type='range'] {
+  @apply appearance-none bg-slate-100 h-2 rounded-full;
+}
+input[type='range']::-webkit-slider-thumb {
+  @apply appearance-none w-6 h-6 bg-orange-600 rounded-full cursor-pointer shadow-lg border-4 border-white;
+}
