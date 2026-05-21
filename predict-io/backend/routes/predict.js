@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const { requireAuth } = require('@clerk/express');
 
-const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://127.0.0.1:5000';
+const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'https://predict-io-ai-service.onrender.com';
 
 router.post('/predict', requireAuth(), async (req, res) => {
     console.log('[API] /api/predict POST request received');
