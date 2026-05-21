@@ -130,7 +130,10 @@ function App() {
       });
       setPrediction(response.data.prediction);
     } catch (err) {
-      setError(err.response?.data?.error || 'Neural processing failed.');
+      const mainError = err.response?.data?.error || 'Neural processing failed.';
+      const details = err.response?.data?.details ? ` [Details: ${err.response.data.details}]` : '';
+      const innerError = err.response?.data?.backendError ? ` (Flask AI Error: ${err.response.data.backendError})` : '';
+      setError(`${mainError}${details}${innerError}`);
     } finally {
       setLoading(false);
     }
